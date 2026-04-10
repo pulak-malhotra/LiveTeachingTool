@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teacher Copilot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <div class="logo">Teacher <span class="logo-highlight">Copilot</span></div>
+    </div>
+    <div class="header-center">
+      <button id="btn-start" class="btn btn-primary">Start Listening</button>
+      <button id="btn-stop" class="btn btn-danger hidden">Stop</button>
+      <button id="btn-generate" class="btn btn-accent hidden">Generate Quiz</button>
+    </div>
+    <div class="header-right">
+      <div id="agent-state" class="agent-state">
+        <span class="agent-dot idle"></span>
+        <span id="agent-state-text">Idle</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Coverage dashboard -->
+    <div id="coverage-dashboard">
+      <!-- Topics column -->
+      <section class="coverage-column">
+        <div class="coverage-header">
+          <h2>Topics</h2>
+          <span id="topics-pct" class="coverage-pct">0%</span>
+        </div>
+        <div class="progress-bar-track">
+          <div id="topics-progress-bar" class="progress-bar-fill"></div>
+        </div>
+        <div id="topics-list" class="checklist"></div>
+        <div class="checklist-input-row">
+          <input id="topic-input" type="text" placeholder="Add a topic&hellip;" />
+          <button id="btn-add-topic" class="btn btn-primary btn-small">+</button>
+        </div>
+      </section>
+
+      <!-- Standards column -->
+      <section class="coverage-column">
+        <div class="coverage-header">
+          <h2>Learning Objectives</h2>
+          <span id="standards-pct" class="coverage-pct">0%</span>
+        </div>
+        <div class="progress-bar-track">
+          <div id="standards-progress-bar" class="progress-bar-fill"></div>
+        </div>
+        <div id="standards-list" class="checklist"></div>
+        <div class="checklist-input-row">
+          <input id="standard-input" type="text" placeholder="Add a learning objective&hellip;" />
+          <button id="btn-add-standard" class="btn btn-primary btn-small">+</button>
+        </div>
+      </section>
+
+      <!-- Agent activity feed -->
+      <section class="activity-column">
+        <div class="coverage-header">
+          <h2>Agent Activity</h2>
+        </div>
+        <div id="activity-feed"></div>
+        <div id="suggestion-box" class="hidden">
+          <div class="suggestion-label">SUGGESTION</div>
+          <div id="suggestion-text"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Quiz panel (replaces dashboard when generated) -->
+    <div id="quiz-panel" class="hidden">
+      <div class="panel-header">
+        <h2 id="quiz-title">Generated Quiz</h2>
+      </div>
+      <div id="quiz-questions"></div>
+    </div>
+  </main>
+
+  <!-- Transcript strip at bottom -->
+  <footer id="transcript-strip">
+    <div class="transcript-label">TRANSCRIPT</div>
+    <div id="transcript-content">
+      <span class="placeholder">Transcript appears here as you speak&hellip;</span>
+    </div>
+  </footer>
+
+  <!-- Loading overlay -->
+  <div id="loading-overlay" class="hidden">
+    <div class="spinner"></div>
+    <p id="loading-text">Generating quiz&hellip;</p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
