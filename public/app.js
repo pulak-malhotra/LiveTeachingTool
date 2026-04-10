@@ -288,8 +288,7 @@ async function stopRecording() {
   setAgentState('idle', 'Idle');
   logActivity('\u{1F6D1}', `Session ended — ${chunkCount} chunks transcribed, ${fullTranscript.split(/\s+/).length} words captured`, 'info');
 
-  btnStart.classList.remove('hidden');
-  if (fullTranscript.trim().length > 0) btnGenerate.classList.remove('hidden');
+  window.location.href = 'https://wayground.com/admin/ai';
 }
 
 // ── Transcription ───────────────────────────────────────────────────────────
@@ -450,15 +449,18 @@ const params = new URLSearchParams(window.location.search);
 
 if (params.get('demo') === 'true') {
   const demoTopics = [
-    'The problem teachers face',
-    'How real-time transcription works',
-    'Live AI coverage tracking',
-    'Quiz generation from lectures',
+    'Three types of rocks (Igneous, Sedimentary, Metamorphic)',
+    'How each rock type forms',
+    'The rock cycle as a continuous loop',
+    'Real-world uses of rocks',
+    'Common misconceptions about rocks',
+    'Tectonic plates and rock distribution',
   ];
   const demoObjectives = [
-    'Understand how AI assists teachers in real-time',
-    'See how classroom audio becomes assessments',
-    'Experience an AI-generated quiz firsthand',
+    'Classify rocks by formation process',
+    'Explain how rocks transform from one type to another',
+    'Identify real-world applications of each rock type',
+    'Describe how fossils form in sedimentary layers',
   ];
 
   demoTopics.forEach((t) => addItem(topics, t, topicsList, topicsPct, topicsProgressBar));
@@ -473,5 +475,5 @@ if (params.get('autostart') === 'true') {
     startRecording();
   }, 2000);
 } else {
-  logActivity('\u{1F916}', 'Teacher Copilot ready. Add topics & learning objectives, then start listening.', 'info');
+  logActivity('\u{1F916}', 'WayAround ready. Add topics & learning objectives, then start listening.', 'info');
 }

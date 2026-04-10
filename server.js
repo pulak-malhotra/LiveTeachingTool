@@ -176,5 +176,5 @@ Use empty arrays if none are covered.`;
 // ─── Start server ────────────────────────────────────────────────────────────
 
 app.listen(PORT, () => {
-  console.log(`\n  Teacher Copilot running at http://localhost:${PORT}\n`);
+  console.log(`\n  WayAround running at http://localhost:${PORT}\n`);
 });
